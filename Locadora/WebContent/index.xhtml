@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+
+
+	<h:form prependId="false">
+
+		<h:messages />
+
+		<h:commandButton action="#{veiculoManagedBean.doStartCreate()}"
+			value="Cadastrar Novo" />
+
+
+		<p:dataTable value="#{veiculoManagedBean.veiculos}" var="item"
+			emptyMessage="Nenhum Veiculo cadastrado" paginator="true"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15" rowIndexVar="index" rows="5">
+
+
+			<p:column headerText=" Modelo" sortBy="#{item.modelo}">
+				<h:outputText value=" #{item.modelo}" />
+			</p:column>
+
+			<p:column headerText=" Marca" sortBy="#{item.marca}">
+				<h:outputText value=" #{item.marca}" />
+			</p:column>
+
+			<p:column headerText="Placa" sortBy="#{item.placa}">
+				<h:outputText value=" #{item.placa}" />
+			</p:column>
+
+			<p:column headerText="Ano Fabricação" sortBy="#{item.anoFabricacao}">
+				<h:outputText value=" #{item.anoFabricacao}" />
+			</p:column>
+
+			<p:column headerText="Ações">
+
+				<h:commandLink action="#{veiculoManagedBean.doStartUpdate()}"
+					style="margin-right:15px;" value="Alterar" title="Alterar">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{veiculoManagedBean.entity}" />
+					<f:param name="indexVeiculo" value="#{index}" />
+				</h:commandLink>
+
+				<h:commandLink action="#{veiculoManagedBean.doFinishDelete()}"
+					title="Excluir" value="Excluir"
+					onclick="return confirm('Deseja excluir esse veículo ?');">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{veiculoManagedBean.entity}" />
+					<f:param name="indexVeiculo" value="#{index}" />
+				</h:commandLink>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</body>
+</html>

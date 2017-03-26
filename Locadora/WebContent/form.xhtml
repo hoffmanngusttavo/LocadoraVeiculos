@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+
+	<h:form prependId="false">
+
+		<h:messages />
+
+		<h:inputHidden value="#{veiculoManagedBean.entity.id}" />
+
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Tipo :" />
+			<h:selectOneMenu value="#{veiculoManagedBean.entity.tipoVeiculo}"
+				label="Tipo" required="true">
+				<f:selectItems value="#{veiculoManagedBean.comboTipoVeiculo}"/>
+			</h:selectOneMenu>
+
+			<h:outputLabel value="Marca :" />
+			<h:inputText value="#{veiculoManagedBean.entity.marca}" label="Marca"
+				required="true" />
+
+			<h:outputLabel value="Modelo :" />
+			<h:inputText value="#{veiculoManagedBean.entity.modelo}"
+				label="Modelo" required="true" />
+
+			<h:outputLabel value="Placa :" />
+			<h:inputText value="#{veiculoManagedBean.entity.placa}" label="Placa"
+				required="true" />
+
+			<h:outputLabel value="Ano de Fabricação :" />
+			<h:inputText value="#{veiculoManagedBean.entity.anoFabricacao}"
+				label="Ano de Fabricação" required="true" />
+
+			<h:outputLabel value="Cor :" />
+			<h:inputText value="#{veiculoManagedBean.entity.cor}" label="Cor"
+				required="true" />
+
+			<h:outputLabel value="Combustível :" />
+			<h:selectOneMenu value="#{veiculoManagedBean.entity.combustivel}"
+				label="Combustível" required="true">
+				<f:selectItems value="#{veiculoManagedBean.comboCombustivel}" />
+			</h:selectOneMenu>
+			
+			<h:outputLabel value="Câmbio :" />
+			<h:selectOneMenu value="#{veiculoManagedBean.entity.cambio}"
+				label="Câmbio" required="true">
+				<f:selectItems value="#{veiculoManagedBean.comboCambio}" />
+			</h:selectOneMenu>
+			
+			<h:outputLabel value="Air bag :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.airbag}" />
+			
+			<h:outputLabel value="ABS :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.abs}" />
+			
+			<h:outputLabel value="Alarme :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.alarme}" />
+			
+			<h:outputLabel value="Ar-condicionado :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.arCondicionado}" />
+			
+			<h:outputLabel value="Ar quente :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.arQuente}" />
+			
+			<h:outputLabel value="Bancos em couro :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.bancoCouro}" />
+			
+			<h:outputLabel value="Direção Hidráulica :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.direcaoHidraulica}" />
+			
+			<h:outputLabel value="Trava elétrica :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.travaEletrica}" />
+			
+			<h:outputLabel value="Roda liga leve :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.rodaLigaLeve}" />
+			
+			<h:outputLabel value="Teto solar :" />
+			<h:selectBooleanCheckbox value="#{veiculoManagedBean.entity.tetoSolar}" />
+
+		</h:panelGrid>
+
+		
+		<h:commandButton action="#{veiculoManagedBean.doSaveVeiculo()}" value="Salvar" />
+
+
+	</h:form>
+
+
+
+</body>
+</html>
