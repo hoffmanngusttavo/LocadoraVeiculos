@@ -24,7 +24,5 @@ Este projeto está resumidamente organizado da seguinte forma:
    -form.xhtml (cadastro novo e edição de veículo)
 
 
-Obs: Decidi utilizar JSF pois é um framework que tenho mais experiência do que as tecnologias citadas 
-como exemplo na especificação do desenvolvimento desse sistema.
 
 ----------------------------/////////////////----------------------------------
